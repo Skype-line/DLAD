@@ -1,0 +1,53 @@
+This is the running instruction for exercise 3, problem 1 and 2.
+
+1. set the config.yaml
+
+For running problem 1, please set following arguments:
+
+	data: 
+		if_xyz_mlp: false
+
+	model:
+		if_xyz_mlp: false
+
+	optimizer:
+		Adam: false
+	
+	scheduler:
+		milestones: [10, 20, 30]
+
+	loss:
+		if_iou_loss: false
+
+	trainer: 
+		resume_from_checkpoint: 
+
+For running problem 2, please set:
+
+	data: 
+		if_xyz_mlp: true
+
+	model:
+		if_xyz_mlp: true
+
+	optimizer:
+		Adam: true
+	
+	scheduler:
+		milestones: [5, 10, 15, 20, 25, 30]
+
+	loss:
+		if_iou_loss: true
+
+For ablation studies, one could manipulate the settings including 'Adam', 'if_xyz_mlp' and 'if_iou_loss'.
+
+2. run the code
+
+Please look at README.md for detailed instructions.
+
+Our code is additionally based on Rotated_IoU package, which needs to be installed before running the code. Although we have already incorporate the installation in train mode (see aws/train_in_tmux), we still would like to provide the installation instructions here:
+
+	cd ~/code/utils/Rotated_IoU/cuda_op/
+	python setup.py install
+
+Then the code could be run following the original instructions.
